@@ -3,40 +3,36 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: clkuznie <clkuznie@student.42.fr>          +#+  +:+       +#+         #
+#    By: aamzil <aamzil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/07/06 21:59:06 by lchristo          #+#    #+#              #
-#    Updated: 2021/03/14 20:35:35 by clkuznie         ###   ########.fr        #
+#    Created: 2020/03/14 10:48:59 by aamzil            #+#    #+#              #
+#    Updated: 2020/03/14 11:47:21 by aamzil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	libasm.a
+NAME = libasm.a
 
-FLAGS 		=	-Wall -Werror -Wextra
+NA = nasm
 
-O		=	$(addsuffix .o, $(SRC))
+NFLAGS = -f elf64
 
-SRC		=	ft_strlen.s\
-			ft_strcpy.s\
-			ft_write.s\
-			ft_read.s\
-			ft_strdup.s
+SRC =	ft_strlen.s\
+		ft_write.s
 
-%.o: %.c $H
-	$(CC) $I -c $< -o $@
+OBJ = $(SRC:.s=.o)
 
-all:			$(NAME)
+all: $(NAME)
 
-$(NAME):		$(OBJS)
-				ar rcs $(NAME) $O
-
-
-debug: $O $H lib/libft/libft.a
+$(NAME):
+	$(NA) $(NFLAGS) ft_strlen.s
+	$(NA) $(NFLAGS) ft_write.s
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 clean:
-
+	rm -f $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME) screenshot.bmp
+	rm -f $(NAME)
 
-re:
+re: fclean all
