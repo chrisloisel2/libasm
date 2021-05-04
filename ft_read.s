@@ -1,3 +1,5 @@
 section .text
-    global _ft_read
-    
+        global ft_write
+
+    ft_write:
+        ret
