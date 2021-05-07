@@ -18,13 +18,15 @@ NFLAGS = -f elf64
 
 SRC =	ft_strlen.s\
 		ft_write.s\
-		ft_read.s
+		ft_read.s\
+		ft_strdup.s
 
 OBJ = $(SRC:.s=.o)
 
 all: $(NAME)
 
 $(NAME):
+	$(NA) $(NFLAGS) ft_strdup.s
 	$(NA) $(NFLAGS) ft_strlen.s
 	$(NA) $(NFLAGS) ft_write.s
 	$(NA) $(NFLAGS) ft_read.s

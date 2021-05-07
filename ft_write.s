@@ -2,6 +2,8 @@ section .text
         global ft_write
 
     ft_write:
-        mov     rax, 1
+        mov rax, 1
         syscall
+        test rax, rax
+
         ret
