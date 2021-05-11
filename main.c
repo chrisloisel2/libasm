@@ -33,16 +33,16 @@ int main(int argc, char **argv)
 	y = strlen("123456789X");
 	printf("%d = %d\n", i, y);
 
+	char *ret;
+	char *ret1;
 
-	ft_write(1, "->hello\n", 8);
-	read(1, str, 10);
-	printf("str = '%s'\n", str);
-	ft_read(1, str1, 10);
-	printf("str = '%s'\n", str1);
+	ret = malloc(sizeof(char) * 8);
+	ret1 = malloc(sizeof(char) * 8);
 
 	str = "azerty";
 	str1 = "azerty";
-	printf("%s\n", ft_strdup(str));
-	printf("%s\n", strdup(str1));
+	printf("%s\n", ft_strcpy(ret, str));
+	printf("%s\n", ret);
+	printf("%s\n", strcpy(ret1, str1));
 	return 0;
 }
