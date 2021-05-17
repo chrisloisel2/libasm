@@ -13,6 +13,10 @@ int main(int argc, char **argv)
 	y = strlen("teubzer");
 	printf("%d = %d\n", i, y);
 
+
+	ft_read(1, str, 10);
+	printf("regarde ->%s", str);
+
 	i = ft_strlen("");
 	y = strlen("");
 	printf("%d = %d\n", i, y);
